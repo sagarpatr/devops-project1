@@ -78,13 +78,29 @@ post {
     success {
           // Action to be executed for the success pipeline
         echo "Pipeline succeedde"
+        sendEmail("success")
     }
     failure {
         // Action to be executed for the failed pipeline
         echo "Pipeline failed"
+        sendEmail("failed")
     }
-}
-      
+}     
     
 }
+
+def sendEmail(String status) {
+    emailext (
+        subject: "Pipeline $status: ${env.JOB_NAME}",
+        body: """<p>Pipeline $status: ${env.JOB_NAME}</p>
+                 <p>Build URL: ${env.BUILD_URL}</p>""",
+        to: 'pythonbismoy@gmail.com',
+        attachLog: true
+    )
+}
+
+
+
+
+
     
