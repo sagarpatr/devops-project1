@@ -4,6 +4,11 @@ pipeline {
     agent any
     
     stages {
+       stage('Pre checkout') {
+            steps {
+                echo "add the checkout code"
+            }
+        }      
         stage('Checkout') {
             steps {
                 echo "add the checkout code"
@@ -24,7 +29,7 @@ pipeline {
                 echo "maven test"
             }
         }
-     stage('sonar scan') {
+       stage('sonar scan') {
             steps {
                 echo "maven test"
             }
@@ -44,13 +49,6 @@ pipeline {
                 echo "docke publish"
             }
         }
-
-
-      stage('Docer publish') {
-            steps {
-                echo "docke publish"
-            }
-        }   
         stage('helm build') {
             steps {
                 echo "helm build coomand add here"
