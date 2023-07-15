@@ -69,6 +69,7 @@ pipeline {
                 echo "helm build coomand add here"
             }
         }  
+    }     
 post {
     always {
         // Cleanup steps
@@ -84,6 +85,6 @@ post {
     }
 }
       
-    }
+    
 }
     
