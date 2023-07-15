@@ -69,6 +69,20 @@ pipeline {
                 echo "helm build coomand add here"
             }
         }  
+post {
+    always {
+        // Cleanup steps
+        deleteDir()
+    }
+    success {
+          // Action to be executed for the success pipeline
+        echo "Pipeline succeedde"
+    }
+    failure {
+        // Action to be executed for the failed pipeline
+        echo "Pipeline failed")
+    }
+}
       
     }
 }
