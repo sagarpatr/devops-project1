@@ -80,7 +80,7 @@ post {
     }
     failure {
         // Action to be executed for the failed pipeline
-        echo "Pipeline failed")
+        echo "Pipeline failed"
     }
 }
       
